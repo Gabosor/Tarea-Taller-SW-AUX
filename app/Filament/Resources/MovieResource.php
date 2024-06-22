@@ -20,7 +20,7 @@ class MovieResource extends Resource
     protected static ?string $model = Movie::class;
     protected static ?string $navigationLabel = "Peliculas";
     protected static ?string $modelLabel = 'Película';
-
+protected static ?string $navigationGroup = 'Administrador';
     protected static ?string $navigationIcon = 'heroicon-o-film';
 
     public static function form(Form $form): Form
@@ -93,6 +93,7 @@ class MovieResource extends Resource
             ->filters([
                 //
             ])
+             ->defaultSort('created_at', 'desc')
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),

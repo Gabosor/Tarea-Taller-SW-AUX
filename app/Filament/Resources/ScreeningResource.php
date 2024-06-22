@@ -21,7 +21,7 @@ class ScreeningResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-wrench-screwdriver';
     protected static ?string $navigationLabel = "Asignar pelicula a sala";
     protected static ?string $modelLabel = 'Asignar Película a Sala';
-
+protected static ?string $navigationGroup = 'Administrador';
     public static function form(Form $form): Form
     {
         return $form

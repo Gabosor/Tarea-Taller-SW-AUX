@@ -76,12 +76,20 @@ class TicketResource extends Resource
                 Tables\Columns\TextColumn::make('user.name')
                     ->label('Vendido por')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->label('Fecha de Compra')
+                    ->dateTime('d-m-Y H:i'),
             ])
             ->filters([
                 // ...
             ])
+             ->defaultSort('created_at', 'desc')
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\Action::make('download')
+                    ->label('Imprimir Ticket')
+                    ->url(fn (Ticket $record): string => route('tickets.download', $record))
+                    ->icon('heroicon-o-ticket')
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
