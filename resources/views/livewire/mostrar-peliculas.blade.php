@@ -3,7 +3,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         @foreach($peliculas as $pelicula)
             <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-                <img src="{{ asset('storage/'.$pelicula->portada) }}" alt="{{ $pelicula->titulo }}" class="w-full h-64 object-cover">
+                <img src="{{ asset('storage/images/'.$pelicula->portada) }}" alt="{{ $pelicula->titulo }}" class="w-full h-64 object-cover">
                 <div class="p-6">
                     <h2 class="text-2xl font-bold mb-2">{{ $pelicula->titulo }}</h2>
                     <p class="text-gray-700 mb-4">{{ $pelicula->descripcion }}</p>
