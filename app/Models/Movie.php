@@ -22,4 +22,9 @@ class Movie extends Model
     {
         $this->attributes['portada'] = pathinfo($value, PATHINFO_BASENAME);
     }
+    public function screenings()
+    {
+        return $this->hasMany(Screening::class);
+    }
+    
 }

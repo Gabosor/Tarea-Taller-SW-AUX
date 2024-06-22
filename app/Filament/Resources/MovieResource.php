@@ -13,13 +13,14 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-
 use Filament\Tables\Columns\ImageColumn;
 
 class MovieResource extends Resource
 {
     protected static ?string $model = Movie::class;
     protected static ?string $navigationLabel = "Peliculas";
+    protected static ?string $modelLabel = 'Película';
+
     protected static ?string $navigationIcon = 'heroicon-o-film';
 
     public static function form(Form $form): Form
@@ -85,12 +86,9 @@ class MovieResource extends Resource
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                    Tables\Columns\ImageColumn::make('portada')
-                        ->label('Portada')
-                        ->disk('public')
-                        ->path('storage/images')
-                        ->getStateUsing(fn ($record) => 'storage/images/' . $record->portada)
-
+                
+                Tables\Columns\ImageColumn::make('portada')
+                    ->disk('public')
             ])
             ->filters([
                 //
