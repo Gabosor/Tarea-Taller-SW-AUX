@@ -20,7 +20,6 @@ return new class extends Migration
                 $table->date('fecha_estreno');
                 $table->string('genero');
                 $table->string('clasificacion');
-                $table->string('portada')->nullable();
                 $table->timestamps();
             });
         }
