@@ -91,6 +91,8 @@ protected static ?string $navigationGroup = 'Administrador';
                 Tables\Columns\ImageColumn::make('portada')
                     ->disk('public')
             ])
+
+            
             ->filters([
                 //
             ])
