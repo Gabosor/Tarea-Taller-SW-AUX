@@ -18,7 +18,7 @@ use Filament\Tables\Columns\ImageColumn;
 class MovieResource extends Resource
 {
     protected static ?string $model = Movie::class;
-    protected static ?string $navigationLabel = "Peliculas";
+    protected static ?string $navigationLabel = "Gestionar Peliculas";
     protected static ?string $modelLabel = 'Película';
 protected static ?string $navigationGroup = 'Administrador';
     protected static ?string $navigationIcon = 'heroicon-o-film';
@@ -41,6 +41,7 @@ protected static ?string $navigationGroup = 'Administrador';
                     ->visibility('public')
                     ->image()
                     ->placeholder('Sube la portada de la película aquí')
+                    ->required()
 
                 ,
                 Forms\Components\Textarea::make('sinopsis')

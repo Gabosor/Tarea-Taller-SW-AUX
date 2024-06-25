@@ -17,7 +17,7 @@ use App\Filament\Resources\TicketResource\RelationManagers;
 class TicketResource extends Resource
 {
     protected static ?string $model = Ticket::class;
-    protected static ?string $navigationLabel = "Boletos";
+    protected static ?string $navigationLabel = "Veder Boleto";
     protected static ?string $modelLabel = 'Boleto';
 
     protected static ?string $navigationIcon = 'heroicon-o-ticket';
@@ -87,7 +87,7 @@ class TicketResource extends Resource
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\Action::make('download')
-                    ->label('Imprimir Ticket')
+                    ->label('Imprimir Boleto')
                     ->url(fn (Ticket $record): string => route('tickets.download', $record))
                     ->icon('heroicon-o-ticket')
             ])

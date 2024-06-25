@@ -16,7 +16,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class ClientResource extends Resource
 {
     protected static ?string $model = Client::class;
-    protected static ?string $navigationLabel = "Clientes";
+    protected static ?string $navigationLabel = "Gestionar Clientes";
     protected static ?string $modelLabel = 'Cliente';
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
@@ -43,6 +43,10 @@ class ClientResource extends Resource
                 Tables\Columns\TextColumn::make('name')->label('Nombre')->searchable(),
                 Tables\Columns\TextColumn::make('email')->label('Correo Electrónico')->searchable(),
                 Tables\Columns\TextColumn::make('phone')->label('Teléfono')->searchable(),
+            ])
+            ->actions([
+                Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->filters([
                 //

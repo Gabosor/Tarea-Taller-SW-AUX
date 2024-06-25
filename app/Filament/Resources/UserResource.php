@@ -20,7 +20,7 @@ class UserResource extends Resource
     protected static ?string $model = User::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-user';
-    protected static ?string $modelLabel = 'Usuario';
+    protected static ?string $modelLabel = 'Gestionar Empleado';
      protected static ?string $navigationGroup = 'Administrador';
     public static function form(Form $form): Form
     {
@@ -54,17 +54,20 @@ class UserResource extends Resource
         return $table
              ->columns([
                 Tables\Columns\TextColumn::make('name')
-                    ->label('Nombre'),
+                    ->label('Nombre')
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('email')
-                    ->label('Correo Electrónico'),
+                    ->label('Correo Electrónico')
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('rol_text')
                     ->label('Rol'),
             ])
             ->filters([
-                // Agrega filtros si es necesario
+                
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
                 Tables\Actions\Action::make('promote')
                     ->label('Promover a Administrador')
                     ->action(function (User $record) {

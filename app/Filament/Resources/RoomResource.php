@@ -18,7 +18,7 @@ class RoomResource extends Resource
     protected static ?string $model = Room::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-home';
-    protected static ?string $navigationLabel = "Salas";
+    protected static ?string $navigationLabel = "Gestionar Salas";
         protected static ?string $modelLabel = 'Salas';
 protected static ?string $navigationGroup = 'Administrador';
     public static function form(Form $form): Form
@@ -54,6 +54,7 @@ protected static ?string $navigationGroup = 'Administrador';
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
